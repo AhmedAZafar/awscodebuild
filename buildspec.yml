@@ -7,7 +7,7 @@ env:
   paramter-store:
     nuget_user: test-nuget-username
     nuget_password: test-nuget-password
-    nuget_feed_value: test-nuget-feed-value
+    nuget_feed_value: test-nuget-feed-value-unsecure
 
 phases:
   install:
