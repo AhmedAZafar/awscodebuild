@@ -19,9 +19,8 @@ phases:
     commands:
       - echo Setting up vsts access files...
       - echo $mktip_var
+      - echo $nuget_feed_value
       - ./test.sh $nuget_feed_value $nuget_user $nuget_password
   post_build:
     commands:
       - echo Successfully completed the build on `date`.
-      - cleaning up secrets...
-      - rm -f ./nuget.config
