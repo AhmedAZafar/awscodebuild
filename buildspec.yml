@@ -14,6 +14,9 @@ phases:
     runtime-versions:
       docker: 18
       dotnet: 2.2
+  pre-build:
+    commands:
+      - ./test.sh $(aws ssem get-parameters --names "test-nuget-feed-value" --with-decryption --query Paramteres.{Value.Value})
 
   build:
     commands:
