@@ -16,7 +16,7 @@ phases:
       dotnet: 2.2
   pre_build:
     commands:
-      - ./test.sh $(aws ssem get-parameters --names "test-nuget-feed-value" --with-decryption --query Paramteres.{Value.Value})
+      - ./test.sh $(aws ssm get-parameters --names "test-nuget-feed-value" --with-decryption --query Paramteres.{Value.Value})
 
   build:
     commands:
