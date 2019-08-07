@@ -1,14 +1,6 @@
 ---
 version: 0.2
 
-env:
-  variables:
-    mktip_var: "AWSCODEBUILDSPEC"
-  paramter-store:
-    nuget_user: "test-nuget-username"
-    nuget_password: "test-nuget-password"
-    nuget_feed_value: "test-nuget-feed-value"
-
 phases:
   install:
     runtime-versions:
@@ -16,14 +8,12 @@ phases:
       dotnet: 2.2
   pre_build:
     commands:
-      - ./test.sh $(aws ssm get-parameters --names "test-nuget-feed-value" --with-decryption --query Paramteres.{Value.Value})
+      - ./test.sh
 
   build:
     commands:
       - echo Setting up vsts access files...
-      - echo $mktip_var
-      - echo $nuget_feed_value
-      - ./test.sh $nuget_feed_value $nuget_user $nuget_password
+      - cat nuget.config
   post_build:
     commands:
       - echo Successfully completed the build on `date`.
