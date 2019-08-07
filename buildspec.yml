@@ -5,7 +5,7 @@ env:
   variables:
     mktip_var: "AWSCODEBUILDSPEC"
   paramter-store:
-    nuget_user: test-nuget-username
+    nuget_user: /Development/test-nuget-user
     nuget_password: test-nuget-password
     nuget_feed_value: test-nuget-feed-value-unsecure
 
